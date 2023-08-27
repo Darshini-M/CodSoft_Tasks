@@ -32,7 +32,11 @@ int main(){
             cout << n1 << " * " << n2 << " = " << n1 * n2 <<endl<<"\n";
             break;
         case '/':
-            cout << n1 << " / " << n2 << " = " << n1 / n2<<endl<<"\n";
+        if(n2!=0){
+            cout << n1 << " / " << n2 << " = " << n1 / n2<<endl<<"\n";}
+        else{
+            cout << "Error: Division by zero is not allowed." << endl;
+        }
             break;
         default:
             cout << "Invalid choice.\n"<<endl<<"\n";
