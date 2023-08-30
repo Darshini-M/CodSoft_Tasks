@@ -20,6 +20,15 @@ int main() {
         cout << "\033[1;36m==============================================================================================================================================\n";
         cout << "\t\t\t\t\t\tWelcome to the Number Guessing Game\n";
         cout << "==============================================================================================================================================\033[0m\n\n";
+         cout << "\x1B[1;35m";// Set text color to cyan (ANSI escape code)
+        cout << "Instructions:\n";
+       
+        cout << "1. The computer will generate a random number between 1 and 100.\n";
+        cout << "2. You need to guess the correct number.\n";
+        cout << "3. After each guess, you will receive feedback on whether the number is too high or too low.\n";
+        cout << "4. Keep guessing until you find the correct number.\n";
+        cout << "5. Have fun and enjoy the game!\n\n";
+         cout << "\x1B[0m";  
 
         int randomNumber = rand() % 100 + 1; // Generates a random number between 1 and 1000
         int userGuess;
