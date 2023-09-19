@@ -9,7 +9,6 @@ double multiply(double a, double b);
 double divide(double a, double b);
 
 int main() {
-    // Set up color attributes
     std::cout << "\033[1;33m==============================================================================================================================================\n";
     std::cout << "\t\t\t\t\t\t🔮 Welcome to the Calculator of Possibilities! 🔮\n";
     std::cout << "\t\t\t\t\t    Where numbers hold the key to unlocking countless outcomes!\n";
@@ -18,8 +17,8 @@ int main() {
     // Main calculator loop
     char repeat;
     do {
-        // Display operation options with colors
-        std::cout << "\033[1;35m"; // Orange text
+        // Display operation options 
+        std::cout << "\033[1;35m"; 
         std::cout << "\nSelect an operation:\n";
         std::cout << "\033[0m\n";
         std::cout << "1. Addition\n";
@@ -32,12 +31,10 @@ int main() {
         std::cin >> choice;
 
         double num1, num2, result;
-        // Blue text
         std::cout << "Enter first number: ";
         std::cin >> num1;
         std::cout << "Enter second number: ";
         std::cin >> num2;
-         // Reset color
 
         switch (choice) {
             case 1: // Addition
@@ -57,29 +54,28 @@ int main() {
                 }
                 break;
             default:
-                std::cout << "\033[1;31m"; // Red text
+                std::cout << "\033[1;31m"; 
                 std::cout << "Invalid choice!" << std::endl;
-                std::cout << "\033[0m"; // Reset color
+                std::cout << "\033[0m";
                 result = std::numeric_limits<double>::quiet_NaN();
         }
 
-        // Display the result without color
+        // Display the result 
         if (!std::isnan(result)) {
-             std::cout << "\033[1;32m"; // Green text
+             std::cout << "\033[1;32m";
             std::cout << "Result: " << result << std::endl;
-            std::cout << "\033[0m"; // Reset color
+            std::cout << "\033[0m"; 
         }
 
-        std::cout << "\033[1;31m"; // Red text
+        std::cout << "\033[1;31m"; 
         std::cout << "Do you want to perform another calculation? (Y/N): ";
-        std::cout << "\033[0m"; // Reset color
+        std::cout << "\033[0m";
         std::cin >> repeat;
     } while (repeat == 'Y' || repeat == 'y');
 
-    // Thank you message
-    std::cout << "\033[1;34m"; // Red text
+    std::cout << "\033[1;34m"; 
     std::cout << "\nThank you for using the calculator!\n\n" << std::endl;
-    std::cout << "\033[0m"; // Reset color
+    std::cout << "\033[0m"; 
 
     return 0;
 }
