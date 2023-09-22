@@ -17,18 +17,31 @@ int main() {
     // Main calculator loop
     char repeat;
     do {
-        // Display operation options 
-        std::cout << "\033[1;35m"; 
-        std::cout << "\nSelect an operation:\n";
-        std::cout << "\033[0m\n";
-        std::cout << "1. Addition\n";
-        std::cout << "2. Subtraction\n";
-        std::cout << "3. Multiplication\n";
-        std::cout << "4. Division\n";
-
         int choice;
-        std::cout << "Enter your choice: ";
-        std::cin >> choice;
+        bool validChoice = false; // Flag to track valid choice
+        
+        // Loop until the user provides a valid choice
+        while (!validChoice) {
+            // Display operation options 
+            std::cout << "\033[1;35m"; 
+            std::cout << "\nSelect an operation:\n";
+            std::cout << "\033[0m\n";
+            std::cout << "1. Addition\n";
+            std::cout << "2. Subtraction\n";
+            std::cout << "3. Multiplication\n";
+            std::cout << "4. Division\n";
+
+            std::cout << "Enter your choice: ";
+            std::cin >> choice;
+
+            if (choice >= 1 && choice <= 4) {
+                validChoice = true; // Valid choice provided, exit the loop
+            } else {
+                std::cout << "\033[1;31m"; 
+                std::cout << "Invalid choice! Please enter a valid choice (1-4).\n";
+                std::cout << "\033[0m";
+            }
+        }
 
         double num1, num2, result;
         std::cout << "Enter first number: ";
@@ -48,24 +61,19 @@ int main() {
                 break;
             case 4: // Division
                 result = divide(num1, num2);
-                if(num2==0){
-                    std::cout<<"Invalid number\n";
-            
+                if (num2 == 0) {
+                    std::cout << "\033[1;31m"; 
+                    std::cout << "Error: Division by zero is not allowed!\n";
+                    std::cout << "\033[0m";
+                    continue; // Ask for input again
                 }
                 break;
-            default:
-                std::cout << "\033[1;31m"; 
-                std::cout << "Invalid choice!" << std::endl;
-                std::cout << "\033[0m";
-                result = std::numeric_limits<double>::quiet_NaN();
         }
 
         // Display the result 
-        if (!std::isnan(result)) {
-             std::cout << "\033[1;32m";
-            std::cout << "Result: " << result << std::endl;
-            std::cout << "\033[0m"; 
-        }
+        std::cout << "\033[1;32m";
+        std::cout << "Result: " << result << std::endl;
+        std::cout << "\033[0m"; 
 
         std::cout << "\033[1;31m"; 
         std::cout << "Do you want to perform another calculation? (Y/N): ";
